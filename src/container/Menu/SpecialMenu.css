@@ -10,8 +10,8 @@
 
 .app__specialMenu-menu {
     width: 100%;
-
     margin: 2rem 0;
+
     display: flex;
     justify-content: center;
     align-items: flex-start;
@@ -41,9 +41,10 @@
 
 .app__specialMenu-menu_img img {
     width: 100%;
+    height: auto;
 }
 
-.app__specialMenu-menu_items {
+.app__specialMenu_menu_items {
     display: flex;
     flex-direction: column;
 
@@ -51,13 +52,13 @@
     width: 100%;
 }
 
-@media screen and (max-width: 2000px) {
+@media screen and (min-width: 2000px) {
     .app__specialMenu-menu_img {
         width: 650px;
     }
-    
+
     .app__specialMenu-menu_img img {
-        width: 920px;
+        height: 920px;
     }
 }
 
@@ -83,4 +84,3 @@
         line-height: 48.5px;
     }
 }
-    
