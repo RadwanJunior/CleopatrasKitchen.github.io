@@ -10,7 +10,7 @@ const Navbar = () => {
   return (
     <nav className="app__navbar">
       <div className="app__navbar-logo">
-        <img src={images.gericht} alt="logo" />
+        <img src={images.cleopatraslogo} alt="logo" />
       </div>
       <ul className="app__navbar-links">
         <li className="p__opensans"><a href="#home">Home</a></li>
@@ -20,8 +20,6 @@ const Navbar = () => {
         <li className="p__opensans"><a href="#contact">Contact</a></li>
       </ul>
       <div className="app__navbar-login">
-        <a href="#login" className="p__opensans">Log In / Register</a>
-        <div />
         <a href="/" className="p__opensans">Book Table</a>
       </div>
       <div className="app__navbar-smallscreen">
