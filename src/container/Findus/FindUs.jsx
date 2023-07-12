@@ -1,9 +1,17 @@
 import React from 'react';
 
+import { useNavigate } from 'react-router-dom';
 import { SubHeading } from '../../components';
 import { images } from '../../constants';
 
-const FindUs = () => (
+const FindUs = () => {
+  const navigate = useNavigate();
+
+  const handleButtonClick = () => {
+    navigate('/contact');
+  };
+
+  return (
   <div className="app__bg app__wrapper section__padding" id="contact">
     <div className="app__wrapper_info">
       <SubHeading title="Contact" />
@@ -14,7 +22,7 @@ const FindUs = () => (
         <p className="p__opensans">Mon - Fri: 08:00 am - 10:00 pm</p>
         <p className="p__opensans">Sat - Sun: 07:00 am - 11:00 pm</p>
       </div>
-      <button type="button" className="custom__button" style={{ marginTop: '2rem' }}>Visit Us</button>
+      <button type="button" className="custom__button" style={{ marginTop: '2rem' }} onClick={handleButtonClick}>Visit Us</button>
     </div>
 
     <div className="app__wrapper_img">
@@ -22,5 +30,6 @@ const FindUs = () => (
     </div>
   </div>
 );
+};
 
 export default FindUs;
