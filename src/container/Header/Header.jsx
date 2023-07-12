@@ -9,7 +9,7 @@ const Header = () => {
   const navigate = useNavigate();
 
   const handleButtonClick = () => {
-    navigate('/menu'); // Replace '/menu' with the desired path to navigate to
+    navigate('/menu');
   };
 
   return (
