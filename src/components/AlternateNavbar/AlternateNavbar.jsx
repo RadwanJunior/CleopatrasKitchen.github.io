@@ -33,22 +33,22 @@ const AlternateNavbar = () => {
           <Link to="/contact">Contact</Link>
         </li>
       </ul>
-      <div className="app__navbar-login">
-        <a href="/" className="p__opensans">
-          Book Table
-        </a>
+      <div className="app__altnavbar-login">
+        <li className="p__opensans">
+          <Link to="/reservation">Reservation</Link>
+        </li>
       </div>
-      <div className="app__navbar-smallscreen">
+      <div className="app__altnavbar-smallscreen">
         <GiHamburgerMenu color="#fff" fontSize={27} onClick={() => setToggleMenu(true)} />
 
         {toggleMenu && (
-          <div className="app__navbar-smallscreen_overlay flex__center slide-bottom">
+          <div className="app__altnavbar-smallscreen_overlay flex__center slide-bottom">
             <MdOutlineRestaurantMenu
               fontSize={27}
               className="overlay__close"
               onClick={() => setToggleMenu(false)}
             />
-            <ul className="app__navbar-smallscreen_links">
+            <ul className="app__altnavbar-smallscreen_links">
               <li className="p__opensans">
                 <Link to="/">Home</Link>
               </li>

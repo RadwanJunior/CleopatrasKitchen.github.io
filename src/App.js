@@ -7,6 +7,7 @@ import History from './pages/History';
 import Menu from './pages/Menu';
 import Photos from './pages/Photos';
 import NotFound from './pages/NotFound';
+import Reservation from './pages/Reservation';
 
 import './App.css';
 
@@ -21,6 +22,7 @@ const App = () => (
         <Route path="/history" element={<History />} />
         <Route path="/menu" element={<Menu />} />
         <Route path="/photos" element={<Photos />} />
+        <Route path="/reservation" element={<Reservation />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>
