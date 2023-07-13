@@ -33,6 +33,7 @@
     box-sizing: border-box;
     overflow: hidden;
     border-radius: 10px;
+    z-index: 1;
 }
 
 .container .box .icon{
@@ -83,3 +84,22 @@
     top: 100px;
     opacity: 1;
 }
+
+.container .box .text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 30px;
+    text-align: center;
+    color: var(--color-white);
+    font-family: var(--font-base);
+    opacity: 1;
+    transition: opacity 0.5s;
+    z-index: 2;
+  }
+  
+  .container .box:hover .text {
+    opacity: 0;
+  }
+  
