@@ -1,8 +1,12 @@
 [
-    { "id": 1, "event": "Event 1", "date": "2000" },
-    { "id": 2, "event": "Event 2", "date": "2005" },
-    { "id": 3, "event": "Event 3", "date": "2010" },
-    { "id": 4, "event": "Event 4", "date": "2015" },
-    { "id": 5, "event": "Event 5", "date": "2020" },
-    { "id": 6, "event": "Event 6", "date": "2023" }
+    { "id": 1, "event": "Opened our doors", "date": "2000" },
+    { "id": 2, "event": "First annual seafood festival", "date": "2005" },
+    { "id": 3, "event": "Introduced our signature dish", "date": "2007" },
+    { "id": 4, "event": "Awarded Best Seafood Restaurant in the city", "date": "2010" },
+    { "id": 5, "event": "Expanded to a second location", "date": "2015" },
+    { "id": 6, "event": "Launched online ordering", "date": "2018" },
+    { "id": 7, "event": "Celebrated serving our millionth customer", "date": "2020" },
+    { "id": 8, "event": "Introduced sustainable sourcing practices", "date": "2021" },
+    { "id": 9, "event": "Opened our first international branch", "date": "2023" }
 ]
+
