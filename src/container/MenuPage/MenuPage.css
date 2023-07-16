@@ -1,0 +1,65 @@
+:root {
+    --font-base: 'Cormorant Upright', serif;
+    --font-alt: 'Open Sans', sans-serif;
+  
+    --color-golden: #DCCA87;
+    --color-black: #0C0C0C;
+    --color-gray: #545454;
+    --color-crimson: #F5EFDB;
+    --color-grey: #AAAAAA;
+    --color-white: #FFFFFF;
+  }
+  
+  body {
+    font-family: var(--font-base);
+    color: var(--color-black);
+    background-color: var(--color-crimson);
+  }
+  
+  .menu {
+    margin: 20px;
+  }
+  
+  .menu-item {
+    background-color: var(--color-white);
+    color: var(--color-black);
+    border: 1px solid var(--color-gray);
+    margin-bottom: 10px;
+    padding: 10px;
+  }
+  
+  .menu-item h5 {
+    color: var(--color-black);
+    font-family: var(--font-base);
+    margin-bottom: 10px;
+  }
+  
+  .menu-item p {
+    color: var(--color-gray);
+    font-family: var(--font-alt);
+    margin-bottom: 10px;
+  }
+  
+  .menu-item span {
+    color: var(--color-golden);
+    font-family: var(--font-base);
+  }
+  
+  .search-input {
+    margin-bottom: 10px;
+  }
+  
+  .search-input input {
+    font-family: var(--font-alt);
+    padding: 5px;
+  }
+  
+  .filter-select {
+    margin-bottom: 20px;
+  }
+  
+  .filter-select select {
+    font-family: var(--font-alt);
+    padding: 5px;
+  }
+  
