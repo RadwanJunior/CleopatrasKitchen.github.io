@@ -7,7 +7,6 @@ export default function () {
     return (
         <div>
             <AlternateNavbar />
-            <h1>Menu</h1>
             <MenuPage />
             <Footer />
         </div>

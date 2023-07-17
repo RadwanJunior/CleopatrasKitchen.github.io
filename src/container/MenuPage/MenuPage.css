@@ -50,4 +50,18 @@
     font-family: var(--font-alt);
     padding: 5px;
   }
+
+  .card-content {
+    height: 200px;  /* adjust the value as per your requirements */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;  /* this helps in distributing the space evenly between the elements */
+}
+
+.card-grid-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
   
