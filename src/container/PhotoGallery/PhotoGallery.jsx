@@ -20,8 +20,18 @@ import Button from '@material-ui/core/Button';
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    marginTop: theme.spacing(5), // Change the value as needed
-    marginBottom: theme.spacing(5), // Change the value as needed
+    marginTop: theme.spacing(5),
+    marginBottom: theme.spacing(5),
+    marginLeft: theme.spacing(2), 
+    marginRight: theme.spacing(2), 
+    [theme.breakpoints.up('sm')]: { 
+      marginLeft: theme.spacing(5), 
+      marginRight: theme.spacing(5), 
+    },
+    [theme.breakpoints.up('md')]: {
+      marginLeft: theme.spacing(10), 
+      marginRight: theme.spacing(10), 
+    },
   },
   gridList: {
     width: '100%',
