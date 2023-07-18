@@ -19,6 +19,10 @@ import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 
 const useStyles = makeStyles((theme) => ({
+  root: {
+    marginTop: theme.spacing(5), // Change the value as needed
+    marginBottom: theme.spacing(5), // Change the value as needed
+  },
   gridList: {
     width: '100%',
     height: '100%',
