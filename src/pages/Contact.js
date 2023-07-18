@@ -1,12 +1,13 @@
 import React from 'react';
 import AlternateNavbar from '../components/AlternateNavbar/AlternateNavbar';
+import ContactUs from '../container/ContactUs/ContactUs';
 import Footer from '../container/Footer/Footer';
 
 export default function () {
     return (
         <div>
             <AlternateNavbar />
-            <h1>Contact</h1>
+            <ContactUs />
             <Footer />
         </div>
     );
