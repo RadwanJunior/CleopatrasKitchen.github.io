@@ -14,7 +14,7 @@
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "emailjs-com": "^3.2.0",
-    "framer-motion": "^10.12.21",
+    "framer-motion": "^10.13.0",
     "leaflet": "^1.9.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -24,6 +24,7 @@
     "react-live-chat-loader": "^2.8.1",
     "react-router-dom": "^6.14.1",
     "react-scripts": "5.0.1",
+    "styled-components": "^6.0.4",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
@@ -55,5 +56,4 @@
     "@babel/preset-env": "^7.22.9",
     "babel-loader": "^9.1.3"
   }
-  
 }
