@@ -1,82 +1,45 @@
-body {
-    background: #f2f2f2;
-  }
-  
-  .ContactUs {
-    width: 90%;
-    margin: 0 auto;
-    font-family: Arial, sans-serif;
-  }
-  
-  .ContactUs h1 {
-    color: #005cbf;
-    margin-bottom: 50px;
-    font-size: 3em;
-  }
-  
-  .grid-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
-  }
-  
-  .info, .map, .form, .chat {
-    background: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  }
-  
-  .info h2, .map h2, .form h2, .chat h2 {
-    margin-bottom: 20px;
-    color: #005cbf;
-  }
-  
-  .contact-form input,
-  .contact-form textarea,
-  .chatbox input {
-    display: block;
-    margin: 10px 0;
-    width: 100%;
-    padding: 10px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-  }
-  
-  .contact-form input[type="submit"],
-  .chat button {
-    background: #005cbf;
-    color: #fff;
-    border: none;
-    cursor: pointer;
-    transition: 0.3s ease;
-  }
-  
-  .contact-form input[type="submit"]:hover,
-  .chat button:hover {
-    background: #004a9f;
-  }
-  
-  .leaflet-container {
-    height: 300px;
-    width: 100%;
-    border-radius: 10px;
-  }
-  
-  .chatbox {
-    max-height: 200px;
-    overflow-y: scroll;
-    margin-bottom: 20px;
-    border: 1px solid #ccc;
-    padding: 10px;
-    border-radius: 5px;
-  }
-  
-  .chatbox p {
-    margin: 0 0 10px;
-  }
-  
-  .chatbox input {
-    margin-bottom: 10px;
-  }
-  
+:root {
+  --font-base: 'Cormorant Upright', serif;
+  --font-alt: 'Open Sans', sans-serif;
+
+  --color-golden: #DCCA87;
+  --color-black: #0C0C0C;
+  --color-gray: #545454;
+  --color-crimson: #F5EFDB;
+  --color-grey: #AAAAAA;
+  --color-white: #FFFFFF;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2em;
+  background-color: var(--color-crimson);
+  color: var(--color-black);
+  font-family: var(--font-base);
+}
+
+.header {
+  color: var(--color-golden);
+  margin-bottom: 1.5em;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.form-field {
+  margin: 0.5em;
+  width: 25ch;
+}
+
+.form-button {
+  margin: 2em;
+  color: var(--color-white);
+  background-color: var(--color-golden);
+}
