@@ -12,6 +12,7 @@ import {
   Grid,
   InputLabel,
   FormControl,
+  Switch,
 } from '@mui/material';
 
 const categories = ['All', 'Appetizers', 'Mains', 'Desserts'];
@@ -104,7 +105,7 @@ const menuData = [
     category: 'Appetizers',
     name: 'Seafood Platter',
     arabicName: 'صحن البحر',
-    description: 'A combination of various seafood including shrimps, calamari and mussels.',
+    description: 'A combination of various seafood including shrimps, calamari, and mussels.',
     arabicDescription: 'مزيج من مختلف المأكولات البحرية بما في ذلك الروبيان والكالاماري والبلح البحري.',
     price: 28.99,
   },
@@ -242,58 +243,21 @@ const menuData = [
     name: 'Ice Cream',
     arabicName: 'أيس كريم',
     description: 'Creamy, delicious ice cream. Choose from vanilla, chocolate, or strawberry.',
-    arabicDescription: 'الآيس كريم الكريمي واللذيذ. اختر من الفانيليا، الشوكولاتة، أو الفراولة.',
-    price: 5.99,
+    arabicDescription: 'الآيس كريم الكريمي واللذيذ. اختر من بين الفانيليا والشوكولاتة أو الفراولة.',
+    price: 6.99,
   },
   {
     id: 26,
     category: 'Desserts',
-    name: 'Tiramisu',
-    arabicName: 'تيراميسو',
-    description: 'Italian dessert made with mascarpone cheese, espresso, and lady fingers.',
-    arabicDescription: 'حلوى إيطالية مصنوعة من جبنة الماسكاربوني والإسبريسو وبسكويت الليدي فينجرز.',
-    price: 9.99,
-  },
-  {
-    id: 27,
-    category: 'Desserts',
-    name: 'Fruit Salad',
-    arabicName: 'سلطة الفاكهة',
-    description: 'Fresh, seasonal fruit salad.',
-    arabicDescription: 'سلطة الفواكه الطازجة الموسمية.',
-    price: 7.99,
-  },
-  {
-    id: 28,
-    category: 'Desserts',
-    name: 'Crème Brûlée',
-    arabicName: 'كريم بروليه',
-    description: 'Rich custard base topped with a layer of hardened caramelized sugar.',
-    arabicDescription: 'قاعدة الكاسترد الغنية مع طبقة من السكر المكرمل الصلب.',
-    price: 8.99,
-  },
-  {
-    id: 29,
-    category: 'Desserts',
     name: 'Cheesecake',
     arabicName: 'تشيز كيك',
-    description: 'Creamy cheesecake with a graham cracker crust. Choose from strawberry, blueberry, or plain.',
-    arabicDescription: 'تشيز كيك كريمي مع قاعدة من بسكويت غراهام. اختر من الفراولة، التوت البري، أو العادي.',
+    description: 'Creamy cheesecake with a graham cracker crust.',
+    arabicDescription: 'تشيز كيك كريمي مع قشرة البسكويت الكراهية.',
     price: 8.99,
-  },
-  {
-    id: 30,
-    category: 'Desserts',
-    name: 'Rice Pudding',
-    arabicName: 'بودينغ الأرز',
-    description: 'Creamy, sweet pudding made from rice and milk.',
-    arabicDescription: 'بودينغ حلو وكريمي مصنوع من الأرز والحليب.',
-    price: 7.99,
   },
 ];
 
-
-const StyledMenuItem = ({ item }) => (
+const StyledMenuItem = ({ item, isArabic }) => (
   <Grid item xs={12} sm={6} md={4} lg={4}>
     <motion.div
       initial={{ opacity: 0, y: -10 }}
@@ -303,8 +267,8 @@ const StyledMenuItem = ({ item }) => (
     >
       <Card>
         <CardContent className="card-content">
-          <Typography variant="h5">{item.name}</Typography>
-          <Typography>{item.description}</Typography>
+          <Typography variant="h5">{isArabic ? item.arabicName : item.name}</Typography>
+          <Typography>{isArabic ? item.arabicDescription : item.description}</Typography>
           <Typography>${item.price}</Typography>
         </CardContent>
       </Card>
@@ -315,35 +279,52 @@ const StyledMenuItem = ({ item }) => (
 const MenuPage = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [filter, setFilter] = useState('All');
+  const [isArabic, setIsArabic] = useState(false);
+
+  const handleSearchChange = (e) => {
+    setSearchQuery(e.target.value);
+  };
+
+  const handleFilterChange = (e) => {
+    setFilter(e.target.value);
+  };
+
+  const handleLanguageToggle = () => {
+    setIsArabic(!isArabic);
+  };
 
   const filteredMenu = menuData.filter(
     (item) =>
       (filter === 'All' || item.category === filter) &&
-      item.name.toLowerCase().includes(searchQuery.toLowerCase())
+      (isArabic
+        ? item.arabicName.toLowerCase().includes(searchQuery.toLowerCase())
+        : item.name.toLowerCase().includes(searchQuery.toLowerCase()))
   );
 
   return (
     <Box className="card-container" m={4}>
       <TextField
         variant="outlined"
-        label="Search menu"
+        label={isArabic ? 'البحث في القائمة' : 'Search menu'}
         fullWidth
         value={searchQuery}
-        onChange={(e) => setSearchQuery(e.target.value)}
+        onChange={handleSearchChange}
       />
       <Box my={2}>
         <FormControl fullWidth variant="outlined">
-          <InputLabel id="demo-simple-select-outlined-label">Category</InputLabel>
+          <InputLabel id="demo-simple-select-outlined-label">
+            {isArabic ? 'التصنيف' : 'Category'}
+          </InputLabel>
           <Select
             labelId="demo-simple-select-outlined-label"
             id="demo-simple-select-outlined"
             value={filter}
-            onChange={(e) => setFilter(e.target.value)}
-            label="Category"
+            onChange={handleFilterChange}
+            label={isArabic ? 'التصنيف' : 'Category'}
           >
             {categories.map((category) => (
               <MenuItem key={category} value={category}>
-                {category}
+                {isArabic ? category : category}
               </MenuItem>
             ))}
           </Select>
@@ -352,12 +333,17 @@ const MenuPage = () => {
       <Box className="card-grid-container">
         <Grid container spacing={3}>
           {filteredMenu.map((item) => (
-            <StyledMenuItem key={item.id} item={item} />
+            <StyledMenuItem key={item.id} item={item} isArabic={isArabic} />
           ))}
         </Grid>
       </Box>
+      <Box my={2}>
+        <Typography variant="body2" color="text.secondary">
+          {isArabic ? 'عرض باللغة الإنجليزية' : 'Switch to Arabic'}
+        </Typography>
+        <Switch checked={isArabic} onChange={handleLanguageToggle} color="primary" />
+      </Box>
     </Box>
-
   );
 };
 
