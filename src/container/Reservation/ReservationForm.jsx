@@ -7,21 +7,24 @@ const FormWrapper = styled.div`
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background: #f7f7f7;
+  background-image: url('path/to/your/image.jpg'); /* Replace with your image path */
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
 `;
 
 const FormContainer = styled.div`
   width: 600px;
-  background: #fff;
+  background: var(--color-crimson);
   box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
   overflow: hidden;
 `;
 
 const FormHeader = styled.div`
-  background: dodgerblue;
+  background: var(--color-golden);
   padding: 2em;
-  color: #fff;
+  color: var(--color-black);
   text-align: center;
 `;
 
@@ -37,14 +40,18 @@ const Label = styled.label`
   display: block;
   margin-bottom: 0.5em;
   font-weight: bold;
+  font-family: var(--font-alt);
+  color: var(--color-black); /* Change text color to black */
 `;
 
 const Input = styled.input`
   width: 100%;
   padding: 0.8em;
-  border: 1px solid #ddd;
+  border: 1px solid var(--color-gray);
   border-radius: 4px;
   font-size: 1em;
+  font-family: var(--font-alt);
+  color: var(--color-black); /* Change text color to black */
 `;
 
 const ButtonContainer = styled.div`
@@ -55,8 +62,8 @@ const ButtonContainer = styled.div`
 
 const Button = styled.button`
   padding: 1em 2em;
-  background: dodgerblue;
-  color: #fff;
+  background: var(--color-golden);
+  color: var(--color-black);
   border: none;
   border-radius: 4px;
   font-size: 1em;
@@ -64,7 +71,7 @@ const Button = styled.button`
   transition: background 0.3s ease;
 
   &:hover {
-    background: darkblue;
+    background: var(--color-grey);
   }
 `;
 
@@ -73,7 +80,7 @@ const ConfirmationMessage = styled.div`
   margin-top: 2em;
   padding: 1em;
   background: rgba(0, 0, 0, 0.8);
-  color: #fff;
+  color: var(--color-black); /* Change text color to black */
   border-radius: 4px;
 `;
 
@@ -89,6 +96,7 @@ const ReservationForm = () => {
   const [time, setTime] = useState('');
   const [guests, setGuests] = useState('');
   const [formCompleted, setFormCompleted] = useState(false);
+  const [formSubmitted, setFormSubmitted] = useState(false);
 
   const nextStep = () => setStep(step + 1);
   const prevStep = () => setStep(step - 1);
@@ -107,8 +115,17 @@ const ReservationForm = () => {
     setDate('');
     setTime('');
     setGuests('');
-    setStep(1); // reset to first step
-    setFormCompleted(true);
+
+    // Check if all form steps have been completed
+    if (step === 3 && validateForm()) {
+      setFormCompleted(true);
+      setFormSubmitted(true);
+    } else {
+      // If form steps are not completed, move to the next step
+      if (validateForm()) {
+        nextStep();
+      }
+    }
   };
 
   const validateForm = () => {
@@ -121,6 +138,22 @@ const ReservationForm = () => {
         return guests.trim().length > 0;
       default:
         return false;
+    }
+  };
+
+  const handleNewReservation = () => {
+    setName('');
+    setDate('');
+    setTime('');
+    setGuests('');
+    setStep(1);
+    setFormCompleted(false);
+    setFormSubmitted(false);
+  };
+
+  const handleConfirmationKeyDown = (e) => {
+    if (e.key === 'Enter') {
+      handleNewReservation();
     }
   };
 
@@ -165,6 +198,11 @@ const ReservationForm = () => {
                 value={time}
                 onChange={(e) => setTime(e.target.value)}
                 required
+                onKeyUp={(e) => {
+                  if (e.key === 'Enter' && date && time) {
+                    nextStep();
+                  }
+                }}
               />
             </FormGroup>
             <ButtonContainer>
@@ -208,18 +246,18 @@ const ReservationForm = () => {
   return (
     <FormWrapper>
       <FormContainer>
-        {formCompleted ? (
+        {formSubmitted ? (
           <motion.div initial="closed" animate="open" variants={variants}>
             <FormHeader>
               <h2>Reservation Confirmed</h2>
             </FormHeader>
             <FormContent>
-              <ConfirmationMessage>
+              <ConfirmationMessage tabIndex={0} onKeyDown={handleConfirmationKeyDown}>
                 <h3>Thank you for your reservation!</h3>
                 <p>We will be waiting for you on {date} at {time}.</p>
               </ConfirmationMessage>
               <ButtonContainer>
-                <Button type="button" onClick={() => setFormCompleted(false)}>
+                <Button type="button" onClick={handleNewReservation}>
                   Make another reservation
                 </Button>
               </ButtonContainer>
@@ -230,7 +268,11 @@ const ReservationForm = () => {
             <FormHeader>
               <h2>Reservation Form</h2>
             </FormHeader>
-            <FormContent>{getStepContent()}</FormContent>
+            <FormContent>
+              <form onSubmit={handleSubmit}>
+                {getStepContent()}
+              </form>
+            </FormContent>
           </motion.div>
         )}
       </FormContainer>
