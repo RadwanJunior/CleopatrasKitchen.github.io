@@ -30,7 +30,9 @@ const Gallery = () => {
       <div className="app__gallery-content">
         <SubHeading title="Instagram" />
         <h1 className="headtext__cormorant">Photo Gallery</h1>
-        <p className="p__opensans" style={{ color: '#AAAAAA', marginTop: '2rem' }}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Volutpat mattis ipsum turpis elit elit scelerisque egestas mu.</p>
+        <p className="p__opensans" style={{ color: '#AAAAAA', marginTop: '2rem' }}>Step into a world of artistry and exquisite flavors at our fine dining Egyptian seafood restaurant. Our Gallery showcases the vibrant colors and meticulous presentations that define our coastal heritage and culinary excellence.
+
+          Experience the visual feast that awaits you. Click here to explore the Gallery and savor the anticipation of extraordinary seafood encounters. Let's create lasting memories together.</p>
         <button type="button" className="custom__button" onClick={handleButtonClick}>View More</button>
       </div>
       <div className="app__gallery-images">

@@ -18,7 +18,11 @@ const Header = () => {
         <SubHeading title="Chase the new flavour" />
         <h1 className="app__header-h1">The Key to Fine Dining</h1>
         <p className="p__opensans" style={{ margin: '2rem 0' }}>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nec quam sed tortor lacinia ultricies. Morbi varius lectus nec quam lobortis, ac dignissim nulla consectetur. Proin in metus at ante rhoncus facilisis sed et nunc. Sed ultrices nunc a tristique sollicitudin.
+        Discover the epitome of fine dining with our captivating seafood restaurant. From coastal treasures to culinary artistry, indulge in the flavors of Egypt's finest seafood. 
+        
+        Join us for an unforgettable experience, celebrating the bounty of the sea in an ambiance of warmth and sophistication. 
+        
+        Welcome to a world of culinary perfection. Your extraordinary journey begins here.
         </p>
         <button type="button" className="custom__button" onClick={handleButtonClick}>
           Explore Menu
