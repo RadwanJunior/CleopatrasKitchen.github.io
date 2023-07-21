@@ -80,7 +80,7 @@ const ConfirmationMessage = styled.div`
   margin-top: 2em;
   padding: 1em;
   background: rgba(0, 0, 0, 0.8);
-  color: var(--color-black); /* Change text color to black */
+  color: var(--color-golden);
   border-radius: 4px;
 `;
 
@@ -169,8 +169,10 @@ const ReservationForm = () => {
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 required
-                placeholder="Your Name"
+                placeholder="Your Name" // Add a placeholder to give users an idea of what to enter
               />
+              {/* You can also include descriptive text below the input field */}
+              <p>Please enter your full name.</p>
             </FormGroup>
             <ButtonContainer>
               <Button type="button" onClick={nextStep} disabled={!validateForm()}>
@@ -189,7 +191,10 @@ const ReservationForm = () => {
                 value={date}
                 onChange={(e) => setDate(e.target.value)}
                 required
+                placeholder="Select Date" // Add a placeholder to suggest the input format
               />
+              {/* Descriptive text for the input */}
+              <p>Please select a date for your reservation.</p>
             </FormGroup>
             <FormGroup>
               <Label>Time:</Label>
@@ -203,7 +208,10 @@ const ReservationForm = () => {
                     nextStep();
                   }
                 }}
+                placeholder="Select Time" // Add a placeholder to suggest the input format
               />
+              {/* Descriptive text for the input */}
+              <p>Please select a time for your reservation.</p>
             </FormGroup>
             <ButtonContainer>
               <Button type="button" onClick={prevStep}>
@@ -225,8 +233,10 @@ const ReservationForm = () => {
                 value={guests}
                 onChange={(e) => setGuests(e.target.value)}
                 required
-                placeholder="Number of Guests"
+                placeholder="Number of Guests" // Add a placeholder to suggest the input format
               />
+              {/* Descriptive text for the input */}
+              <p>Please enter the number of guests for the reservation.</p>
             </FormGroup>
             <ButtonContainer>
               <Button type="button" onClick={prevStep}>
